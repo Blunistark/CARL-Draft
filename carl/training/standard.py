@@ -48,7 +48,10 @@ def train_standard(config: dict[str, Any]) -> dict[str, Any]:
     #     if step % config["eval_interval"] == 0:
     #         _evaluate_and_checkpoint(agent, env, config, step)
 
-    raise NotImplementedError("train_standard is not yet implemented.")
+    raise NotImplementedError(
+        "train_standard is a stub awaiting implementation. "
+        "Implement _make_env, _build_agent, and the training loop above."
+    )
 
 
 def train_standard_lstm(config: dict[str, Any]) -> dict[str, Any]:

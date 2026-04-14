@@ -26,7 +26,12 @@ def _export_csv(logger: SpatialLogger, output_path: str) -> None:
 
 def main():
     parser = argparse.ArgumentParser(description="Export trajectory data from a saved log file.")
-    parser.add_argument("--run-dir", type=str, required=True, help="Path to a saved SpatialLogger file (.json or .npz).")
+    parser.add_argument(
+        "--trajectory-file",
+        type=str,
+        required=True,
+        help="Path to a saved SpatialLogger file (.json or .npz).",
+    )
     parser.add_argument(
         "--output-format",
         type=str,
@@ -37,7 +42,7 @@ def main():
     parser.add_argument("--output", type=str, required=True, help="Output file path.")
     args = parser.parse_args()
 
-    logger = SpatialLogger.load(args.run_dir)
+    logger = SpatialLogger.load(args.trajectory_file)
     if args.output_format == "json":
         _export_json(logger, args.output)
     else:
