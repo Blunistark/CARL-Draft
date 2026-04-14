@@ -1,0 +1,3 @@
+@echo off
+echo Launching training...
+python cli\train_standard.py %*

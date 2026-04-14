@@ -49,3 +49,38 @@ def train_standard(config: dict[str, Any]) -> dict[str, Any]:
     #         _evaluate_and_checkpoint(agent, env, config, step)
 
     raise NotImplementedError("train_standard is not yet implemented.")
+
+
+def train_standard_lstm(config: dict[str, Any]) -> dict[str, Any]:
+    """Run a standard TD3 training loop with an LSTM-based policy.
+
+    Drop-in variant of :func:`train_standard` that substitutes an LSTM actor
+    and critic for the default MLP networks.
+
+    Args:
+        config: Training configuration dict (same schema as
+            :func:`train_standard`, plus optional ``lstm_hidden_size`` and
+            ``lstm_num_layers`` keys).
+
+    Returns:
+        Dict of final training metrics.
+    """
+    raise NotImplementedError("train_standard_lstm is not yet implemented.")
+
+
+def train_standard_transformer(config: dict[str, Any]) -> dict[str, Any]:
+    """Run a standard TD3 training loop with a Transformer-based policy.
+
+    Drop-in variant of :func:`train_standard` that substitutes a Transformer
+    actor and critic for the default MLP networks.
+
+    Args:
+        config: Training configuration dict (same schema as
+            :func:`train_standard`, plus optional ``transformer_nhead``,
+            ``transformer_num_layers``, and ``transformer_dim_feedforward``
+            keys).
+
+    Returns:
+        Dict of final training metrics.
+    """
+    raise NotImplementedError("train_standard_transformer is not yet implemented.")
