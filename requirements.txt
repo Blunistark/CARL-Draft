@@ -1,0 +1,28 @@
+# Core DRL / RL
+gymnasium>=0.29.0
+stable-baselines3>=2.3.0
+torch>=2.2.0
+
+# Scientific computing
+numpy>=1.26.0
+scipy>=1.12.0
+
+# Visualization
+matplotlib>=3.8.0
+plotly>=5.20.0
+
+# Explainability / SHAP
+shap>=0.45.0
+
+# Data
+pandas>=2.2.0
+
+# Config
+pyyaml>=6.0.1
+
+# Utilities
+tqdm>=4.66.0
+rich>=13.7.0
+
+# Testing
+pytest>=8.0.0
