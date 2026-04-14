@@ -58,13 +58,15 @@ class PathViewer:
             }
         )
 
-    def set_waypoints(self, waypoints: np.ndarray) -> None:
+    def set_waypoints(self, waypoints: list[np.ndarray] | np.ndarray) -> None:
         """Set the reference waypoint path to overlay on the plot.
 
         Args:
-            waypoints: Array of shape ``(N, 3)`` containing waypoint positions.
+            waypoints: Either an array of shape ``(N, 3)`` or a list of
+                ``(3,)`` arrays, each representing a waypoint position.
         """
-        self._waypoints = [np.asarray(wp, dtype=np.float32) for wp in waypoints]
+        wp_arr = np.asarray(waypoints, dtype=np.float32)
+        self._waypoints = list(wp_arr)
 
     def render(self, save_path: str | Path | None = None) -> None:
         """Render the 3-D trajectory plot.
@@ -81,8 +83,6 @@ class PathViewer:
                 "matplotlib is required for PathViewer. "
                 "Install with: pip install matplotlib"
             ) from exc
-
-        import matplotlib.pyplot as plt
 
         fig = plt.figure(figsize=self.figsize)
         ax = fig.add_subplot(111, projection="3d")
